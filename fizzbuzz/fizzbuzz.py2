@@ -19,6 +19,7 @@ def fizzbuzz(fizz, buzz, max):
 def get_lines(path):
     f = open(path)
     lines = map((lambda part: part.split()), f.read().split("\n"))
+    f.close()
     # Filter out empty lines, because codeeval "input" LIES
     return filter(lambda line: len(line) == 3, lines)
 
