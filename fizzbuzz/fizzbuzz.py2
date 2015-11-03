@@ -1,0 +1,22 @@
+import sys
+
+def fizzbuzz(fizz, buzz, max):
+    fizz = int(fizz, 10)
+    buzz = int(buzz, 10)
+    max = int(max, 10)
+    out = []
+    for x in range(1, max+1):
+        if x % fizz == 0 and x % buzz == 0:
+            out.append('FB')
+        elif x % fizz == 0:
+            out.append('F')
+        elif x % buzz == 0:
+            out.append('B')
+        else:
+            out.append(str(x))
+    return out
+
+f = open(sys.argv[1])
+lines = map((lambda part: part.split()), f.read().split("\n"))
+for results in map((lambda line: fizzbuzz(*line)), lines):
+    print " ".join(results)
